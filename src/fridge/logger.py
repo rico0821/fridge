@@ -2,7 +2,7 @@
 """
     fridge.logger
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Module for fridge app server logging.
+    Module for server logging.
 
     :copyright: (c)2020 by rico0821
 
@@ -22,7 +22,7 @@ class Log:
         'critical' : logging.CRITICAL
     }
 
-    _my_logger = None
+    __logger = None
 
     @staticmethod
     def init(logger_name="Fridge_Log",

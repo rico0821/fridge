@@ -1,25 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-    fridge.model
+    fridge.model.user
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Module for initialising fridge model package.
-    -- Create declarative base for SQLAlchemy.
+    Module for user database models.
+    -- Create TblUsers model.
 
     :copyright: (c)2020 by rico0821
 
 """
-from datetime import datetime
-
-from sqlalchemy import Column, DateTime, Integer, Float, ForeignKey, String
+from sqlalchemy import Column, Boolean, DateTime, Integer, ForeignKey, String, CHAR
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.expression import func
 
 from fridge.model import Base
 
 
-class User(Base):
-
-    __tablename__ = "users"
+class TblUsers(Base):
+    __tablename__ = "tbl_users"
 
     id = Column(Integer, primary_key=True)
     createdAt = Column(DateTime, server_default=func.now())
@@ -30,6 +27,24 @@ class User(Base):
     dob = Column(DateTime)
     sex = Column(Integer)
 
+    creds = relationship("TblCreds", uselist=False, backref="user")
+
     inventory = Column(Integer, nullable=False)
+
+
+class TblCreds(Base):
+    __tablename__ = "tbl_creds"
+
+    id = Column(Integer, primary_key=True)
+    userId = Column(Integer, ForeignKey('tbl_users.id'))
+    createdAt = Column(DateTime, server_default=func.now())
+    updatedAt = Column(DateTime, onupdate=func.now())
+
+    username = Column(String(50), unique=True)
+    email = Column(String(100), unique=True)
+    password = Column(CHAR(93))
+    verified = Column(Boolean, default=False, nullable=False)
+
+
 
 

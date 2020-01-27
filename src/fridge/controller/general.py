@@ -15,7 +15,7 @@ from functools import wraps
 from flask import current_app, redirect, request, session, url_for
 
 from fridge.blueprint import fridge
-from fridge.database import dao
+from fridge.extension.database import dao
 from fridge.logger import Log
 from fridge.model.user import User
 

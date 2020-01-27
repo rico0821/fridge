@@ -10,22 +10,19 @@
 
 """
 import os
-from datetime import datetime
 
-from flask import Flask, render_template, url_for
+from flask import Flask
+from schematics.exceptions import BaseError
+from werkzeug.exceptions import HTTPException
 
 from fridge.config import Config
 from fridge.logger import Log
-from fridge.database import DBManager, dao, mongo
-from fridge.blueprint import fridge
-from fridge.cache_session import SimpleCacheSessionInterface
 
 
 def print_settings(config):
     """
     Print settings on console.
     :param config: configuration dictionary
-    :return: none
     """
     print("----------------------------------------")
     print("SETTINGS")
@@ -33,6 +30,31 @@ def print_settings(config):
     for key, value in config:
         print("%s=%s" % (key, value))
     print("----------------------------------------")
+
+
+def register_extensions(flask_app):
+    from fridge.extension import jwt, main_db, mongo_db
+
+    jwt.init_app(flask_app)
+    main_db.init_app(flask_app)
+    mongo_db.init_app(flask_app)
+
+
+def register_controls(flask_app):
+    from fridge.controller import route
+
+    route(flask_app)
+
+
+def register_hooks(flask_app):
+    from fridge.hook.error import schematics_base_error_handler, broad_exception_handler, http_exception_handler
+    from fridge.hook.request_context import after_request
+
+    flask_app.after_request(after_request)
+    flask_app.register_error_handler(BaseError, schematics_base_error_handler)
+    flask_app.register_error_handler(HTTPException, http_exception_handler)
+    flask_app.register_error_handler(Exception, broad_exception_handler)
+
 
 def create_app(config_filepath='resource/config.cfg'):
     """
@@ -52,21 +74,10 @@ def create_app(config_filepath='resource/config.cfg'):
                                 app.config['LOG_FILE_PATH'])
     Log.init(log_filepath=log_filepath)
 
-    # Load SQLAlchemy DB
-    db_filepath = os.path.join(app.root_path,
-                               app.config['DB_FILE_PATH'])
-    db_url = app.config['DB_URL'] + db_filepath
-    DBManager.init(db_url, app.config['DB_LOG_FLAG'])
-    DBManager.init_db()
-
-    # Load MongoDB
-    mongo.init_app(app)
-
-    # Register blueprint
-    app.register_blueprint(fridge)
-
-    # Register SessionInterface
-    app.session_interface = SimpleCacheSessionInterface()
+    # Registry
+    register_extensions(app)
+    register_controls(app)
+    register_hooks(app)
 
     return app
 
