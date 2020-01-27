@@ -2,7 +2,7 @@
 """
     fridge.context
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    Module for creating a app context property.
+    Module for creating app context property.
     -- Define _ContextProperty class.
     -- Create _ContextProperty instance.
 
@@ -12,8 +12,8 @@
 from flask import g
 from flask_jwt_extended import get_jwt_identity
 
-from fridge.extension import main_db
-from fridge.model.user import TblUsers
+from fridge.extensions import main_db
+from fridge.models.user import TblUsers
 
 
 class _ContextProperty:
@@ -34,7 +34,7 @@ class _ContextProperty:
         else:
             session = main_db.session
 
-            user = TblUsers.first(
+            user = TblUsers.first_or_abort(
                 session,
                 TblUsers.id == get_jwt_identity(),
                 code=401

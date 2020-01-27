@@ -7,8 +7,14 @@
     :copyright: (c)2020 by rico0821
 
 """
+import os
+
+
 class Config:
     """Configuration object."""
+
+    # Security
+    SECRET_KEY = os.getenv('SECRET_KEY', '85c145a16bd6f6e1f3e104ca78c6a102')
 
     # SQLite DB
     DB_URL = 'sqlite:///'

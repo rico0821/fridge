@@ -4,7 +4,6 @@
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Module for initialising fridge package.
     -- Create a Flask application for fridge.
-    -- Initilaise config, blueprint, session, DB.
 
     :copyright: (c)2020 by rico0821
 
@@ -33,7 +32,7 @@ def print_settings(config):
 
 
 def register_extensions(flask_app):
-    from fridge.extension import jwt, main_db, mongo_db
+    from fridge.extensions import jwt, main_db, mongo_db
 
     jwt.init_app(flask_app)
     main_db.init_app(flask_app)
@@ -41,14 +40,14 @@ def register_extensions(flask_app):
 
 
 def register_controls(flask_app):
-    from fridge.controller import route
+    from fridge.views import route
 
     route(flask_app)
 
 
 def register_hooks(flask_app):
-    from fridge.hook.error import schematics_base_error_handler, broad_exception_handler, http_exception_handler
-    from fridge.hook.request_context import after_request
+    from fridge.hooks.error import schematics_base_error_handler, broad_exception_handler, http_exception_handler
+    from fridge.hooks.request_context import after_request
 
     flask_app.after_request(after_request)
     flask_app.register_error_handler(BaseError, schematics_base_error_handler)

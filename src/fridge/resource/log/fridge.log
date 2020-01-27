@@ -1,0 +1,71 @@
+2020-01-27 16:53:38,950 - ERROR - (sqlite3.IntegrityError) NOT NULL constraint failed: tbl_users.firstName
+[SQL: INSERT INTO tbl_users ("updatedAt", "firstName", "lastName", dob, sex, inventory) VALUES (?, ?, ?, ?, ?, ?)]
+[parameters: (None, None, None, None, None, None)]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+2020-01-27 16:56:48,060 - INFO - RECEIVED!!!!
+2020-01-27 16:56:48,060 - INFO - RECEIVED!!!!
+2020-01-27 16:56:55,978 - INFO - RECEIVED!!!!
+2020-01-27 16:56:55,979 - INFO - RECEIVED!!!!
+2020-01-27 16:56:59,235 - INFO - RECEIVED!!!!
+2020-01-27 16:56:59,236 - INFO - RECEIVED!!!!
+2020-01-27 16:57:14,840 - INFO - RECEIVED!!!!
+2020-01-27 16:57:14,840 - INFO - RECEIVED!!!!
+2020-01-27 17:04:49,044 - INFO - RECEIVED!!!!
+2020-01-27 17:04:49,119 - ERROR - (sqlite3.IntegrityError) NOT NULL constraint failed: tbl_users.inventory
+[SQL: INSERT INTO tbl_users ("updatedAt", "firstName", "lastName", dob, sex, inventory) VALUES (?, ?, ?, ?, ?, ?)]
+[parameters: (None, None, None, None, None, None)]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+2020-01-27 17:05:58,080 - INFO - RECEIVED!!!!
+2020-01-27 17:05:58,155 - ERROR - (sqlite3.IntegrityError) NOT NULL constraint failed: tbl_users.inventory
+[SQL: INSERT INTO tbl_users ("firstName", "lastName", dob, sex, inventory) VALUES (?, ?, ?, ?, ?)]
+[parameters: (None, None, None, None, None)]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+2020-01-27 17:06:35,236 - INFO - RECEIVED!!!!
+2020-01-27 17:06:35,310 - ERROR - (sqlite3.IntegrityError) NOT NULL constraint failed: tbl_users.inventory
+[SQL: INSERT INTO tbl_users ("firstName", "lastName", dob, sex, inventory) VALUES (?, ?, ?, ?, ?)]
+[parameters: (None, None, None, None, None)]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+2020-01-27 17:09:31,840 - INFO - RECEIVED!!!!
+2020-01-27 17:09:31,928 - INFO - New user <class 'fridge.models.user.TblUsers'> registered.
+2020-01-27 17:43:55,679 - INFO - New user <class 'fridge.models.user.TblUsers'> registered.
+2020-01-27 17:53:58,781 - INFO - New user <class 'fridge.models.user.TblUsers'> registered.
+2020-01-27 17:54:28,755 - INFO - New user <class 'fridge.models.user.TblUsers'> registered.
+2020-01-27 17:54:31,316 - ERROR - (sqlite3.IntegrityError) UNIQUE constraint failed: tbl_creds.email
+[SQL: INSERT INTO tbl_creds ("userId", username, email, password, verified) VALUES (?, ?, ?, ?, ?)]
+[parameters: (None, 'wefwefawwefetwe', 'riwefco0ewef821@nawver.com', 'pbkdf2:sha256:150000$4FZf49vY$c4cec91207a91f3f8fd5c5a39eb5abd993e2037e2b0cbd8a3ba32e2c1f20d669', 0)]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+2020-01-27 17:56:45,969 - ERROR - (sqlite3.IntegrityError) UNIQUE constraint failed: tbl_creds.email
+[SQL: INSERT INTO tbl_creds ("userId", username, email, password, verified) VALUES (?, ?, ?, ?, ?)]
+[parameters: (None, 'wefwefawwefwefetwe', 'riwefco0ewef821@nawver.com', 'pbkdf2:sha256:150000$rlpDqDjW$13b6e19eca14055c347ed0a79b47e184acc294002d991c43fdc569c7b95d60bf', 0)]
+(Background on this error at: http://sqlalche.me/e/gkpj)
+2020-01-27 17:59:11,459 - INFO - New user <class 'fridge.models.user.TblUsers'> registered.
+2020-01-27 18:04:39,803 - INFO - New user <class 'fridge.models.user.TblUsers'> registered.
+2020-01-27 18:05:14,308 - ERROR - %i format: a number is required, not InstrumentedAttribute
+2020-01-27 18:05:30,017 - INFO - New user <sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x000002572D6734C8> registered.
+2020-01-27 18:06:19,367 - INFO - New user wefwefawwefwefefeefeffewefetwe registered.
+2020-01-27 18:43:30,328 - INFO - New user tester registered.
+2020-01-27 19:03:48,248 - ERROR - name 'user' is not defined
+2020-01-27 19:04:02,043 - ERROR - 'NoneType' object has no attribute 'append'
+2020-01-27 19:06:02,765 - ERROR - __init__() got an unexpected keyword argument 'username'
+2020-01-27 19:08:02,813 - ERROR - __init__() got an unexpected keyword argument 'username'
+2020-01-27 19:09:16,041 - ERROR - __init__() got an unexpected keyword argument 'password'
+2020-01-27 19:09:57,730 - ERROR - 'NoneType' object has no attribute 'append'
+2020-01-27 19:11:23,362 - ERROR - 'NoneType' object has no attribute 'append'
+2020-01-27 19:11:42,307 - ERROR - 'NoneType' object has no attribute 'append'
+2020-01-27 19:11:56,069 - ERROR - 'NoneType' object has no attribute 'append'
+2020-01-27 19:12:28,564 - ERROR - 'NoneType' object has no attribute 'append'
+2020-01-27 19:15:07,769 - INFO - New user tester registered.
+2020-01-27 19:16:01,267 - INFO - New user tester registered.
+2020-01-27 19:20:20,174 - INFO - New user tester registered.
+2020-01-27 19:20:27,202 - INFO - User 1 authorised successfully.
+2020-01-27 19:20:55,689 - INFO - User 1 authorised successfully.
+2020-01-27 19:22:09,924 - INFO - User 1 authorised successfully.
+2020-01-27 19:23:17,161 - INFO - User 1 authorised successfully.
+2020-01-27 19:24:20,723 - INFO - User 1 authorised successfully.
+2020-01-27 19:27:38,699 - INFO - User 1 authorised successfully.
+2020-01-27 19:38:08,304 - INFO - User 1 authorised successfully.
+2020-01-27 19:38:21,018 - INFO - User 1 authorised successfully.
+2020-01-27 19:38:22,192 - INFO - User 1 authorised successfully.
+2020-01-27 19:38:23,202 - INFO - User 1 authorised successfully.
+2020-01-27 19:38:24,872 - INFO - User 1 authorised successfully.
+2020-01-27 22:00:44,034 - INFO - Refreshing access token for 1
