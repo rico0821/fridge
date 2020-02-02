@@ -1,0 +1,7 @@
+flask
+flask_jwt_extended
+schematics
+sqlalchemy
+pillow
+arrow
+flask_restful
