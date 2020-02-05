@@ -27,8 +27,8 @@ class Config:
     # MongoDB
     MONGO_URI = 'mongodb://localhost:27017/fridge'
 
-    # Session
-
+    # Upload
+    UPLOAD_FOLDER = 'resource/upload/'
 
     # Log
     LOG_LEVEL = 'debug'

@@ -12,7 +12,7 @@ from abc import abstractmethod
 from enum import Enum
 from functools import wraps
 
-from flask import request
+from flask import abort, request
 from schematics import Model
 
 from fridge.context import context_property
@@ -35,6 +35,7 @@ def validate_with_schematics(validation_target, model):
         def wrapper(*args, **kwargs):
             instance = model(getattr(request, validation_target.value))
             instance.validate()
+
             getattr(instance, "validate_additional", lambda: ...)()
 
             context_property.request_payload = instance

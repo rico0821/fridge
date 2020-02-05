@@ -15,7 +15,7 @@ from werkzeug.security import generate_password_hash
 from fridge.context import context_property
 from fridge.decorators.validation import PayLoadLocation, BaseModel, validate_with_schematics
 from fridge.extensions import main_db
-from fridge.logger import Log
+from fridge.misc.logger import Log
 from fridge.models.user import TblUsers, TblCreds
 from fridge.views import BaseResource
 
@@ -39,7 +39,7 @@ class SignupAPI(BaseResource):
 
     @validate_with_schematics(PayLoadLocation.JSON, Schema.Post)
     def post(self):
-        """User signup API."""
+        """ User registration API. """
         payload = self.Schema.Post = context_property.request_payload
         session = main_db.session
 
@@ -49,10 +49,10 @@ class SignupAPI(BaseResource):
             try:
                 new_user = TblUsers()
                 new_creds = TblCreds(
-                         username=payload.username,
-                         password=generate_password_hash(payload.password),
-                         email=payload.email
-                     )
+                    username=payload.username,
+                    password=generate_password_hash(payload.password),
+                    email=payload.email
+                )
 
                 session.add_all(
                     [new_user, new_creds]

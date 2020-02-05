@@ -17,6 +17,7 @@ _Base = declarative_base()
 
 
 class Base(_Base):
+    """ Abstract base class for main DB models using SQLAlchemy. """
     __abstract__ = True
 
     @classmethod

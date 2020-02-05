@@ -11,7 +11,7 @@
 """
 import arrow
 
-from flask import Blueprint, Flask
+from flask import Blueprint
 from flask_restful import Api, Resource
 
 
@@ -29,6 +29,7 @@ def route(flask_app):
     from fridge.views.user.account import signup
     from fridge.views.user.account import check_username
     from fridge.views.user.account import refresh
+    from fridge.views.recipebook import recipe
 
     handle_exception_func = flask_app.handle_exception
     handle_user_exception_func = flask_app.handle_user_exception
@@ -36,6 +37,7 @@ def route(flask_app):
     # Initialise blueprint and API objects
     api_blueprint = Blueprint("api", __name__)
     api_user_account = Api(api_blueprint, prefix='/user/account')
+    api_recipebook = Api(api_blueprint, prefix='/recipebook')
 
     # Register routes
     api_user_account.add_resource(auth.AuthAPI, '/auth')
@@ -43,6 +45,8 @@ def route(flask_app):
     api_user_account.add_resource(check_username.CheckUsernameAPI,
                                   '/check_username/username/<username>')
     api_user_account.add_resource(refresh.RefreshAPI, '/refresh')
+
+    api_recipebook.add_resource(recipe.RecipeAPI, '/recipe')
 
     # Register blueprint
     flask_app.register_blueprint(api_blueprint)

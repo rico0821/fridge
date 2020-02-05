@@ -15,7 +15,7 @@ from schematics.exceptions import BaseError
 from werkzeug.exceptions import HTTPException
 
 from fridge.config import Config
-from fridge.logger import Log
+from fridge.misc.logger import Log
 
 
 def print_settings(config):

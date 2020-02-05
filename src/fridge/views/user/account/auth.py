@@ -16,7 +16,7 @@ from werkzeug.security import check_password_hash
 from fridge.context import context_property
 from fridge.decorators.validation import PayLoadLocation, BaseModel, validate_with_schematics
 from fridge.extensions import main_db
-from fridge.logger import Log
+from fridge.misc.logger import Log
 from fridge.models.user import TblCreds
 from fridge.views import BaseResource
 
@@ -36,8 +36,7 @@ class AuthAPI(BaseResource):
 
     @validate_with_schematics(PayLoadLocation.JSON, Schema.Post)
     def post(self):
-        """Login authentication API."""
-
+        """ Login authentication API. """
         payload = context_property.request_payload
         session = main_db.session
 

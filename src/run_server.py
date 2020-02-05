@@ -12,4 +12,6 @@ from fridge import create_app
 application = create_app()
 
 print('Starting server...')
-application.run(host='127.0.0.1', port=2000, debug=True)
+local = '127.0.0.1'
+external = '172.30.1.11'
+application.run(host=local, port=80, debug=True)

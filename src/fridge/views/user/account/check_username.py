@@ -16,7 +16,7 @@ from fridge.views import BaseResource
 
 class CheckUsernameAPI(BaseResource):
     def get(self, username):
-        """Username check API."""
+        """ Username check API. """
 
         session = main_db.session
 
