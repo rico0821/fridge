@@ -6,7 +6,7 @@
 
     :copyright: (c)2020 by rico0821
 """
-from fridge import create_app
+from app import create_app
 
 
 application = create_app()

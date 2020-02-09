@@ -1,0 +1,20 @@
+2020-02-10 02:25:24,511 - INFO - New recipe recipe_test added by 1.
+2020-02-10 02:29:19,272 - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2020-02-10 02:29:56,518 - INFO - User 1 authorised successfully.
+2020-02-10 02:34:59,463 - INFO - User 1 authorised successfully.
+2020-02-10 02:35:49,473 - INFO - User 1 authorised successfully.
+2020-02-10 02:36:34,811 - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2020-02-10 02:36:42,189 - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2020-02-10 02:37:13,750 - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2020-02-10 02:42:15,236 - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2020-02-10 02:42:45,498 - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2020-02-10 02:44:38,703 - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2020-02-10 02:44:59,670 - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2020-02-10 02:45:54,870 - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2020-02-10 02:46:42,587 - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2020-02-10 02:49:37,142 - ERROR - 'dict' object has no attribute 'to'
+2020-02-10 02:54:08,326 - ERROR - 'dict' object has no attribute '_id'
+2020-02-10 02:59:09,102 - ERROR - Object of type datetime is not JSON serializable
+2020-02-10 02:59:45,048 - ERROR - Object of type datetime is not JSON serializable
+2020-02-10 03:02:03,384 - ERROR - Object of type datetime is not JSON serializable
+2020-02-10 03:07:14,935 - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
