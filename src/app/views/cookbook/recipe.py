@@ -44,7 +44,7 @@ class UploadRecipeAPI(BaseResource):
     def post(self):
         """ Recipe upload API. """
 
-        payload = self.Schema.Post = context_property.request_payload
+        payload = context_property.request_payload
         mongo = mongo_db.db
         user = context_property.request_user
         # cover_img = request.files["cover_img"]
@@ -95,6 +95,13 @@ class UploadRecipeAPI(BaseResource):
 
 
 class RecipeAPI(BaseResource):
+    class Schema:
+        class Patch(BaseModel):
+            recipe_name = UploadRecipeAPI.Schema.Post.recipe_name
+            description = UploadRecipeAPI.Schema.Post.description
+            ingredients = UploadRecipeAPI.Schema.Post.ingredients
+            steps = UploadRecipeAPI.Schema.Post.steps
+            cover_filename_orig = UploadRecipeAPI.Schema.Post.cover_filename_orig
 
     @jwt_required
     def get(self, recipe_id):
@@ -109,4 +116,36 @@ class RecipeAPI(BaseResource):
         recipe["_id"] = str(recipe["_id"])
         recipe["updatedAt"] = str(recipe["updatedAt"])
 
-        return {"data": recipe}
+        return {"data": recipe}, 200
+
+    @validate_with_schematics(PayLoadLocation.JSON, Schema.Patch)
+    @jwt_required
+    def patch(self, recipe_id):
+        """ Edit recipe API. """
+
+        payload = context_property.request_payload
+        mongo = mongo_db.db
+        user = context_property.request_user
+
+        recipe = mongo.recipe.find_one_or_404({
+            "_id": ObjectId(recipe_id)
+        })
+
+    @jwt_required
+    def delete(self, recipe_id):
+        """ Delete recipe API. """
+
+        mongo = mongo_db.db
+        user = context_property.request_user
+
+        recipe = mongo.recipe.find_one_or_404({
+            "_id": ObjectId(recipe_id)
+        })
+
+        if not recipe["userId"] == user.id:
+            abort(401)
+
+        else:
+            mongo.remove({
+                "_id": ObjectId(recipe_id)
+            })

@@ -25,13 +25,9 @@ def route(flask_app):
     """
     Routing function for flask_restful structure.
     """
-    from app.views.user.account import auth
-    from app.views.user.account import signup
-    from app.views.user.account import check_username
-    from app.views.user.account import refresh
-    from app.views.cookbook import recipe
-    from app.views.cookbook import book
-    from app.views.fridge import search_ingredient
+    from app.views.user.account import auth, signup, check_username, refresh
+    from app.views.cookbook import book, recipe
+    from app.views.fridge import ingredient
 
     handle_exception_func = flask_app.handle_exception
     handle_user_exception_func = flask_app.handle_user_exception
